@@ -45,9 +45,6 @@ client.on('messageCreate', message => {
     const command = args.shift().toLowerCase();
 
     switch (command) {
-        case 'ping':
-            client.commands.get('ping').execute(message, args);
-            break;
         case 'play':
             client.commands.get('play').execute(message, args, client, distube);
             break;

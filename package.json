@@ -1,0 +1,19 @@
+{
+  "name": "discordmusicbot",
+  "version": "1.0.0",
+  "description": "Music Bot for Discord",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "LaurentMe",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/opus": "^0.6.0",
+    "@discordjs/voice": "^0.7.0",
+    "discord.js": "^13.3.0",
+    "distube": "^3.0.1",
+    "ffmpeg-static": "^4.4.0",
+    "sodium": "^3.0.2"
+  }
+}

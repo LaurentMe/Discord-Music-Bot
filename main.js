@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const fs = require('fs');
-const { prefix, token } = require('./config.json')
+const { prefix, token, emoji } = require('./config.json')
 
 const { Client, Intents } = require('discord.js');
 const DisTube = require('distube');
@@ -11,6 +11,7 @@ const client = new Client({
         Intents.FLAGS.GUILD_VOICE_STATES
     ]
 });
+client.emotes = emoji;
 const distube = new DisTube.default(client);
 
 client.commands = new Discord.Collection();

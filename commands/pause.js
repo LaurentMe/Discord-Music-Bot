@@ -2,6 +2,10 @@ module.exports = {
     name: 'pause',
     description: 'Pause a song',
     execute(message, args, client, distube) {
-        distube.pause(message, args.join(' '))
+        try {
+            distube.pause(message)
+        } catch (e) {
+            message.channel.send(`${client.emotes.error} | Error: \`${e}\``)
+        }
     }
 }

@@ -27,17 +27,6 @@ client.once('ready', () => {
     console.log('Bot is online')
 });
 
-// Queue status template
-const status = queue =>
-    `Volume: \`${queue.volume}%\` | Filter: \`${queue.filters.join(', ')
-    || 'Off'}\` | Loop: \`${
-        queue.repeatMode
-            ? queue.repeatMode === 2
-                ? 'All Queue'
-                : 'This Song'
-            : 'Off'
-    }\` | Autoplay: \`${queue.autoplay ? 'On' : 'Off'}\``
-
 client.on('messageCreate', message => {
     if(!message.content.startsWith(prefix) || message.author.bot) return;
 
@@ -59,6 +48,18 @@ client.on('messageCreate', message => {
             break;
     }
 });
+
+// Queue status template
+const status = queue =>
+    `Volume: \`${queue.volume}%\` | Filter: \`${queue.filters.join(', ')
+    || 'Off'}\` | Loop: \`${
+        queue.repeatMode
+            ? queue.repeatMode === 2
+                ? 'All Queue'
+                : 'This Song'
+            : 'Off'
+    }\` | Autoplay: \`${queue.autoplay ? 'On' : 'Off'}\``
+
 
 // DisTube event listeners, more in the documentation page
 distube

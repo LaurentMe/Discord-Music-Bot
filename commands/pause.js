@@ -1,6 +1,6 @@
 module.exports = {
     name: 'pause',
-    description: 'Play a song',
+    description: 'Pause a song',
     execute(message, args, client, distube) {
         distube.pause(message, args.join(' '))
     }

@@ -25,11 +25,6 @@ for(const file of commandFiles){
 
 client.once('ready', () => {
     console.log('Bot is online')
-
-    distube.on('error', (channel, error) => {
-        console.error(error)
-        channel.send(`An error encoutered: ${error.slice(0, 1979)}`) // Discord limits 2000 characters in a message
-    });
 });
 
 // Queue status template
@@ -112,7 +107,7 @@ distube
         textChannel.send(`An error encountered: ${e.slice(0, 2000)}`)
     })
     .on('finish', queue => queue.textChannel.send('Finish queue!'))
-    .on('finishSong', queue => queue.textChannel.send('Finish song!'))
+    // .on('finishSong', queue => queue.textChannel.send('Finish song!'))
     .on('disconnect', queue => queue.textChannel.send('Disconnected!'))
     .on('empty', queue => queue.textChannel.send('Empty!'))
 

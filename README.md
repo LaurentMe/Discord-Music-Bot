@@ -6,8 +6,8 @@ You need python 3.7 or higher to use Distube.
 
 Copy ```config.example.json``` to ```config.json``` and fil in your unique bot token.
 
-#### Install packages
+### Install packages:
 ```npm install```
 
-#### Run the service:
+### Run the service:
 ```node .```

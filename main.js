@@ -1,16 +1,17 @@
 const Discord = require("discord.js");
 const fs = require("fs");
 const { prefix, token, emoji } = require("./config.json");
-const { Client, Intents } = require("discord.js");
+const { Client, GatewayIntentBits, Partials } = require('discord.js');
 const DisTube = require("distube");
 
 const client = new Client({
   intents: [
-    Intents.FLAGS.GUILDS,
-    Intents.FLAGS.GUILD_MESSAGES,
-    Intents.FLAGS.GUILD_VOICE_STATES,
+      GatewayIntentBits.Guilds,
+      GatewayIntentBits.GuildMessages,
+      GatewayIntentBits.GuildVoiceStates,
   ],
 });
+
 client.emotes = emoji;
 const distube = new DisTube.default(client);
 

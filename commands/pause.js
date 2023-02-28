@@ -4,6 +4,7 @@ module.exports = {
   execute(message, args, client, distube) {
     try {
       distube.pause(message);
+      message.channel.send('', {files: ['./../assets/img/Pause.png']});
     } catch (e) {
       message.channel.send(`${client.emotes.error} | Error: \`${e}\``);
     }

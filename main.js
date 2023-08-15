@@ -1,18 +1,18 @@
 const Discord = require("discord.js");
 const fs = require("fs");
 const { prefix, token, emoji } = require("./config.json");
-const { Client, GatewayIntentBits, Partials } = require('discord.js');
+const { Client, GatewayIntentBits, Partials } = require("discord.js");
 const DisTube = require("distube");
 const { YtDlpPlugin } = require("@distube/yt-dlp");
 
 const client = new Client({
   intents: [
-      GatewayIntentBits.Guilds,
-      GatewayIntentBits.GuildMessages,
-      GatewayIntentBits.GuildVoiceStates,
-      GatewayIntentBits.MessageContent,
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildMessages,
+    GatewayIntentBits.GuildVoiceStates,
+    GatewayIntentBits.MessageContent,
   ],
-  plugins: [new YtDlpPlugin({ update: false })]
+  plugins: [new YtDlpPlugin({ update: false })],
 });
 
 client.emotes = emoji;
@@ -74,19 +74,19 @@ distube
       `Playing \`${song.name}\` - \`${
         song.formattedDuration
       }\`\nRequested by: ${song.user}\n${status(queue)}`
-    )
+    ),
   )
   .on("addSong", (queue, song) =>
     queue.textChannel.send(
-      `Added ${song.name} - \`${song.formattedDuration}\` to the queue by ${song.user}`
-    )
+      `Added ${song.name} - \`${song.formattedDuration}\` to the queue by ${song.user}`,
+    ),
   )
   .on("addList", (queue, playlist) =>
     queue.textChannel.send(
       `Added \`${playlist.name}\` playlist (${
         playlist.songs.length
-      } songs) to queue\n${status(queue)}`
-    )
+      } songs) to queue\n${status(queue)}`,
+    ),
   )
   // DisTubeOptions.searchSongs = true
   .on("searchResult", (message, result) => {
@@ -94,15 +94,15 @@ distube
     message.channel.send(
       `**Choose an option from below**\n${result
         .map(
-          (song) => `**${++i}**. ${song.name} - \`${song.formattedDuration}\``
+          (song) => `**${++i}**. ${song.name} - \`${song.formattedDuration}\``,
         )
-        .join("\n")}\n*Enter anything else or wait 30 seconds to cancel*`
+        .join("\n")}\n*Enter anything else or wait 30 seconds to cancel*`,
     );
   })
   // DisTubeOptions.searchSongs = true
   .on("searchCancel", (message) => message.channel.send(`Searching canceled`))
   .on("searchInvalidAnswer", (message) =>
-    message.channel.send(`searchInvalidAnswer`)
+    message.channel.send(`searchInvalidAnswer`),
   )
   .on("searchNoResult", (message) => message.channel.send(`No result found!`))
   .on("error", (textChannel, e) => {

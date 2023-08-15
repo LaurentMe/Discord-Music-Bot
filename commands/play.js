@@ -4,7 +4,7 @@ module.exports = {
   execute(message, args, client, distube) {
     try {
       if (args.length > 0) {
-        distube.play(message, args.join(" "));
+        distube.play(message.member.voice.channel, args.join(" "), { message, member: message.member });
       } else {
         distube.resume(message);
       }

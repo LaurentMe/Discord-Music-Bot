@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const fs = require("fs");
 const { prefix, token, emoji } = require("./config.json");
-const { Client, GatewayIntentBits, Partials } = require("discord.js");
+const { Client, GatewayIntentBits } = require("discord.js");
 const DisTube = require("distube");
 const { YtDlpPlugin } = require("@distube/yt-dlp");
 
@@ -12,7 +12,9 @@ const client = new Client({
     GatewayIntentBits.GuildVoiceStates,
     GatewayIntentBits.MessageContent,
   ],
-  plugins: [new YtDlpPlugin({ update: false })],
+  plugins: [
+      new YtDlpPlugin({ update: false })
+  ],
 });
 
 client.emotes = emoji;

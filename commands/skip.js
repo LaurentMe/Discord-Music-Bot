@@ -3,7 +3,7 @@ module.exports = {
     description: 'Skip song',
     execute(message, args, client, distube) {
         const queue = distube.getQueue(message);
-        if (distube.queues.collection.size > 1) {
+        if (queue.songs.length > 1) {
             distube.skip(message);
         } else {
             queue.stop();
